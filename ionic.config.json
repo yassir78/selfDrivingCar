@@ -1,5 +1,7 @@
 {
   "name": "selfDrivingCar",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

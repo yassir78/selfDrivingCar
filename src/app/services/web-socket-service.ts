@@ -6,13 +6,10 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class WebSocketService {
-  socket: any;
-  readonly uri: string = 'ws://127.0.0.1:7070';
+  socket: SocketIOClient.Socket;
+  readonly uri: string = 'https://autonomabackend.herokuapp.com/';
   constructor() {
-    console.log("okay le's connect to the socket");
-    this.socket = io(this.uri);
-
-    console.log("we're done");
+    this.socket = io.connect(this.uri);
   }
   listen(eventName: string) {
     return new Observable((subscriber) => {

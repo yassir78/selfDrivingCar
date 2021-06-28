@@ -1,10 +1,56 @@
 <ion-card>
   <ion-card-header>
-    <ion-card-subtitle>Vitesse</ion-card-subtitle>
-    <ion-card-title>20 Km/h</ion-card-title>
+    <ion-card-title class="ion-text-center">
+      <img src="../../assets/logo.png" class="image1" alt="">
+    </ion-card-title>
   </ion-card-header>
+</ion-card>
+<ion-card>
+  <ion-card-header>
+    <ion-card-subtitle>Vitesse</ion-card-subtitle>
+    <ion-card-title>
+      <!-- <span *ngIf="(speed$|async) ==null;else speedNotNull">0</span>
+      <ng-template #speedNotNull>
+        {{speed$|async}}
+      </ng-template> Km/h -->
+      {{speed}} km/h
+      <div class="container">
+        <div class="mini-container" *ngIf="direction =='left' ">
+          <span class="align">La voiture tourne à gauche</span>
+          <img src="../../assets/left-arrow.png" class="animate-flicker" style="display: inline;" width="50px" alt="">
+        </div>
+        <div class="mini-container" *ngIf="direction=='forward'">
+          <span class="align">La voiture roule dans une ligne droite</span>
+          <img src="../../assets/right-arrow.png" class="animate-flicker" style="display: inline;" width="50px" alt="">
+        </div>
+        <div class="mini-container" *ngIf="direction =='right'">
+          <span class="align">La voiture tourne à droite</span>
+          <img src="../../assets/up-arrow.png" class="animate-flicker" style="display: inline;" width="50px" alt="">
+        </div>
+      </div>
 
+    </ion-card-title>
+  </ion-card-header>
+</ion-card>
+
+<ion-card>
   <ion-card-content>
-    <car></car>
+
+    <ion-item style="display: flex;justify-content: center;">
+
+      <ion-grid>
+        <ion-row>
+          <ion-col offset="2" size="9">
+            <div>
+              <img [src]=" imgSrc" alt="" class="image" [ngClass]="{'animate-flicker': fadeOut == true}">
+            </div>
+          </ion-col>
+          <ion-col>
+            <div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
   </ion-card-content>
 </ion-card>
